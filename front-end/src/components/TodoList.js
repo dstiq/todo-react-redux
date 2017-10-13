@@ -3,12 +3,7 @@ import Todo from './Todo';
 import PropTypes from 'prop-types';
 import {SHOW_TAB1} from '../ActionTypes';
 
-
-
-
 export default class TodoList extends Component {
-
-
     render() {
         let props = this.props;
         let what_shouldBe_rendered;

@@ -4,20 +4,14 @@ import AddTodo from '../components/AddTodo';
 import TodoList from '../components/TodoList';
 import PropTypes from 'prop-types';
 import { bindActionCreators } from 'redux';
-import * as addTodoAction from '../actions/AddTodoAction';
-import * as changeTabAction from '../actions/ChangeTabAction';
-import * as checkTodoAction from '../actions/CheckTodoAction';
-import * as deleteCheckedAction from '../actions/DeleteCheckedAction';
-
-
+import * as TodoActions from '../actions/todoActions';
+import * as TabActions from '../actions/tabActions';
 
 class App extends Component {
     render() {
         const { todoProp, tabProp } = this.props;
-        const { addTodo }  = this.props.addTodoAction;
-        const { changeTab } = this.props.changeTabActions;
-        const { checkTodo } = this.props.checkTodoActions;
-        const { deleteChecked }  = this.props.deleteCheckedActions;
+        const { addTodo, checkTodo, deleteChecked } = this.props.todoActions;
+        const { changeTab } = this.props.tabActions;
 
         return (
             <div>
@@ -52,10 +46,8 @@ function mapStateToProps(state) {
 }
  function mapDispatchToProps(dispatch) {
     return {
-        addTodoAction: bindActionCreators(addTodoAction, dispatch),
-        changeTabActions: bindActionCreators(changeTabAction, dispatch),
-        checkTodoActions: bindActionCreators (checkTodoAction, dispatch),
-        deleteCheckedActions: bindActionCreators(deleteCheckedAction, dispatch)
+        tabActions: bindActionCreators(TabActions, dispatch),
+        todoActions: bindActionCreators(TodoActions, dispatch)
     }
  }
 
